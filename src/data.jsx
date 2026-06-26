@@ -205,14 +205,6 @@ export const resume = [
   //   title:'Java Full Stack Developer at Atos Global',
   //   desc:'Worked as a Full Stack Java Developer at Atos Global, focusing on developing and maintaining web applications using Java, Spring Boot, and React. Collaborated with cross-functional teams to deliver high-quality software solutions.'
   // },
-  // {
-  //   id:9,
-  //   category: 'experience',
-  //   icon: <FaBriefcase />,
-  //   year:'2014',
-  //   title:'Junior Java Developer at Symphonize',
-  //   desc:'Worked as a Junior Java Developer at Symphonize, focusing on developing and maintaining web applications using Java and Spring Boot. Collaborated with cross-functional teams to deliver high-quality software solutions.'
-  // },
   {
     id:5,
     category: 'education',

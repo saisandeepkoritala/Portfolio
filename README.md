@@ -12,9 +12,9 @@ Check out the live site here: **[saisandeepkoritala-portfolio.netlify.app](https
 
 * **Frontend Tooling:** Vite
 * **Frontend Framework:** React
-* **Language:** TypeScript
-* **Styling & UI Components:** Tailwind CSS / shadcn/ui
-* **Icons:** Lucide React
+* **Language:** JavaScript
+* **Styling & UI Components:** CSS
+* **Icons:** React Icons
 * **Deployment:** Netlify
 
 ---
