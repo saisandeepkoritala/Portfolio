@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-// 1. Import the markdown renderer
 import ReactMarkdown from 'react-markdown'; 
 import './floatingPortfolioBot.css'; 
 
@@ -10,6 +9,10 @@ const FloatingPortfolioBot = () => {
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  
+  // 1. Add state to keep track of the threadId across requests
+  const [threadId, setThreadId] = useState(null);
+  
   const chatEndRef = useRef(null);
 
   useEffect(() => {
@@ -32,15 +35,24 @@ const FloatingPortfolioBot = () => {
       const response = await fetch('http://localhost:5000/api/v1/askBot/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ question: userQuestion }),
+        // 2. Include the threadId in the payload (it will be undefined on the first request)
+        body: JSON.stringify({ question: userQuestion, threadId }),
       });
 
       if (!response.ok) throw new Error('Network response was not ok');
       const data = await response.json();
       
+      // 3. Capture and save the thread ID returned by the backend
+      if (data.extractedThreadId) {
+        setThreadId(data.extractedThreadId);
+      }
+
+      // 4. Update state using data.result.answer (or fallback to data.result if your wrapper differs)
+      const botAnswer = data.result?.answer || "I parsed the response but couldn't find the answer text.";
+
       setMessages(prev => [...prev, { 
         id: Date.now() + 1, 
-        text: data.answer || "I parsed the response but couldn't find the answer text.", 
+        text: botAnswer, 
         isBot: true 
       }]);
     } catch (error) {
@@ -78,7 +90,6 @@ const FloatingPortfolioBot = () => {
             {messages.map((msg) => (
               <div key={msg.id} className={`message-row ${msg.isBot ? 'bot' : 'user'}`}>
                 <div className={`message-bubble ${msg.isBot ? 'bot' : 'user'}`}>
-                  {/* 2. Conditionally render markdown only for the bot's responses */}
                   {msg.isBot ? (
                     <ReactMarkdown>{msg.text}</ReactMarkdown>
                   ) : (

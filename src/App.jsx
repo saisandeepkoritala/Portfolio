@@ -6,7 +6,6 @@ import Home from "./pages/home/Home"
 import About from "./pages/about/About"
 import Portfolio from "./pages/portfolio/Portfolio"
 import Contact from "./pages/contact/Contact"
-// 1. Import your new floating bot component
 import FloatingPortfolioBot from "./components/FloatingPortfolioBot" 
 
 function App() {
@@ -15,7 +14,7 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Themes />
-      
+    
       <Routes>
         <Route index element = {<Home />}/>
         <Route path="about" element={<About/>}/>
@@ -23,7 +22,6 @@ function App() {
         <Route path="contact" element={<Contact/>}/>
       </Routes>
       
-      {/* 2. Place it here so it stays fixed on every single page */}
       <FloatingPortfolioBot />
       
     </BrowserRouter>

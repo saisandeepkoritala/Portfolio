@@ -9,11 +9,13 @@ import { images } from '../../data';
 import axios from "axios";
 
 function Home() {
-  
+
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const [index, setIndex] = useState(0);
+
+  const [server, setServer] = useState(false);
 
   useEffect(() => {
     let loadedImages = 0;
@@ -31,6 +33,45 @@ function Home() {
     });
   }, []);
 
+  useEffect(() => {
+    let controller;
+    let timerId;
+
+    const serverHealthCheck = async () => {
+
+      controller = new AbortController();
+      const { signal } = controller;
+
+      try {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/user/isAlive`, { signal });
+
+        if (response.ok) {
+          setServer(true);
+          console.log("Server is active! Stopping pings.");
+        } else {
+          throw new Error('Server returned an error status');
+          // Throwing error to enter catch block
+        }
+      } catch (e) {
+        if (e.name !== 'AbortError') {
+          console.log('Server not ready yet, retrying in 2s...');
+          timerId = setTimeout(serverHealthCheck, 2000);
+        } 
+        else {
+          console.log('Request was intentionally aborted.');
+        }
+      }
+    };
+
+    serverHealthCheck();
+
+    return () => {
+      if (controller) controller.abort();
+      clearTimeout(timerId);
+    };
+
+  }, []);
+
   const slides = images.map(img => ({
     src: img.original,
     alt: img.description || "Portfolio Gallery Image"
@@ -44,14 +85,14 @@ function Home() {
         </div>
       ) : (
         <div className="gallery-preview-container">
-          <img 
-            src={images[0]?.original} 
-            alt="View Gallery" 
+          <img
+            src={images[0]?.original}
+            alt="View Gallery"
             className="gallery-preview-img"
             onClick={() => { setIndex(0); setIsOpen(true); }}
             style={{ cursor: 'pointer', maxWidth: '100%', borderRadius: '8px' }}
           />
-          
+
           <Lightbox
             index={index}
             open={isOpen}
