@@ -56,6 +56,13 @@
   align-items: center;
 }
 
+.chat-header .dot{
+  width:8px;
+  height:8px;
+  background-color: red;
+  border-radius: 50%;
+}
+
 .chat-close-btn {
   background: none;
   border: none;

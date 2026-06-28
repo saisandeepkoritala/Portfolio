@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown'; 
 import './floatingPortfolioBot.css'; 
 
-const FloatingPortfolioBot = () => {
+const FloatingPortfolioBot = ({server}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
     { id: 1, text: "Hi there! Ask me anything about my projects, skills, or experience.", isBot: true }
@@ -32,7 +32,7 @@ const FloatingPortfolioBot = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://localhost:5000/api/v1/askBot/chat', {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/askBot/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         // 2. Include the threadId in the payload (it will be undefined on the first request)
@@ -82,6 +82,8 @@ const FloatingPortfolioBot = () => {
           {/* Header */}
           <div className="chat-header">
             <span>🤖 Ask About Sai</span>
+            <span className="dot" style={{ backgroundColor: server ? 'green' : 'red' }}>
+            </span>
             <button className="chat-close-btn" onClick={() => setIsOpen(false)}>×</button>
           </div>
 
