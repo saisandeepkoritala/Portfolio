@@ -6,6 +6,7 @@
     gap: 30px;
 }
 
+
 .info__list {
     display: grid;
     grid-template-columns: 1fr;
@@ -202,7 +203,7 @@
 }
 
 @media screen and (min-width: 768px) {
-    .about__container,
+    /* .about__container, */
     .resume__container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
