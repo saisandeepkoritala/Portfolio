@@ -82,7 +82,8 @@ const FloatingPortfolioBot = ({server}) => {
           {/* Header */}
           <div className="chat-header">
             <span>🤖 Ask About Sai</span>
-            <span className="dot" style={{ backgroundColor: server ? 'green' : 'red' }}>
+            <span className="dot">
+              {server ? 'Online' : 'Connecting...'}
             </span>
             <button className="chat-close-btn" onClick={() => setIsOpen(false)}>×</button>
           </div>
