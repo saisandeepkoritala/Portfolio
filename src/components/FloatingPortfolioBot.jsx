@@ -43,8 +43,8 @@ const FloatingPortfolioBot = ({server}) => {
       const data = await response.json();
       
       // 3. Capture and save the thread ID returned by the backend
-      if (data.extractedThreadId) {
-        setThreadId(data.extractedThreadId);
+      if (data.threadId) {
+        setThreadId(data.threadId);
       }
 
       // 4. Update state using data.result.answer (or fallback to data.result if your wrapper differs)
