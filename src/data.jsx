@@ -51,6 +51,7 @@ import Pic8 from './assets/SAI-8.jpg';
 import Pic10 from './assets/SAI-10.jpg';
 import Pic11 from './assets/SAI-11.jpg';
 import Pic12 from './assets/SAI-12.jpg';
+import Pic13 from './assets/SAI-13.jpg';
 
 import HTML from './assets/HTML.svg';
 import CSS from './assets/CSS.svg';
@@ -841,6 +842,10 @@ export const themes = [
 ];
 
 export const images=[
+  {
+    original: Pic13,
+    thumbnail: Pic13,
+  },
   {
     original: Pic6,
     thumbnail: Pic6,

@@ -1,11 +1,11 @@
 /* Container to fix everything to the bottom right */
-.bot-container {
+/* .bot-container {
   position: fixed;
   bottom: 24px;
-  right: 24px;
+  left: 24px;
   z-index: 1000;
   font-family: var(--body-font);
-}
+} */
 
 /* Floating Toggle Button */
 .bot-toggle-btn {
