@@ -27,6 +27,7 @@ import Work14 from './assets/Ben.png';
 import Work15 from './assets/Dream11_Team.png';
 import Work16 from './assets/Casino.png';
 import Work17 from './assets/CrickInfo.png';
+import Work18 from './assets/TripPlanner1.png';
 
 import Theme1 from './assets/purple.png';
 import Theme2 from './assets/red.png';
@@ -365,6 +366,29 @@ export const skills = [
 ];
 
 export const portfolio = [
+    {
+    id: 18,
+    img: Work18,
+    title: 'Trip Planner',
+    link:"https://saisandeep-tripplanner.netlify.app/",
+    details: [
+      {
+        icon: <FiFileText />,
+        title: 'Project : ',
+        desc: 'Trip Planner',
+      },
+      {
+        icon: <FaCode />,
+        title: 'Language : ',
+        desc: 'MERN',
+      },
+      {
+        icon: <FiExternalLink />,
+        title: 'Preview : ',
+        desc: 'click on image',
+      },
+    ],
+  },
   {
     id: 0,
     img: Work0,
