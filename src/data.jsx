@@ -126,19 +126,19 @@ export const personalInfo = [
   {
     id: 6,
     title: 'Location : ',
-    description: 'Kingsville, Texas',
+    description: 'Hyderabad, India',
   },
 
   {
     id: 7,
     title: 'Phone : ',
-    description: '3612288859',
+    description: '+91 90144 17290',
   },
 
   {
     id: 8,
     title: 'Email : ',
-    description: 'saisandeep.koritala@gmail.com',
+    description: 'saisandeepkoritala1999@gmail.com',
   },
 
   {

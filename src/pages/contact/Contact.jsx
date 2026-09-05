@@ -7,7 +7,8 @@ import {
   FaWhatsapp,
   FaFacebook,
   FaTwitter,
-  FaSnapchat
+  FaSnapchat,
+  FaGithub
 } from "react-icons/fa";
 import { FiSend } from "react-icons/fi";
 import axios from "axios";
@@ -77,7 +78,7 @@ function Contact() {
               <FaEnvelopeOpen className="info__icon" />
               <div>
                 <span className="info__title">Mail me </span>
-                <h4 className="info__desc">saisandeep.koritala@gmail.com</h4>
+                <h4 className="info__desc">saisandeepkoritala1999@gmail.com</h4>
               </div>
             </div>
 
@@ -85,7 +86,7 @@ function Contact() {
               <FaPhoneSquareAlt className="info__icon" />
               <div>
                 <span className="info__title">Call me</span>
-                <h4 className="info__desc">+1 361-228-8859</h4>
+                <h4 className="info__desc">+91 90144 17290</h4>
               </div>
             </div>
           </div>
@@ -97,18 +98,12 @@ function Contact() {
             <a href="https://www.instagram.com/saisandeep.koritala/" className="contact__social-links">
               <FaInstagram />
             </a>
-            <a href="https://www.linkedin.com/in/koritalasaisandeep/" className="contact__social-links">
+            <a href="https://www.linkedin.com/in/koritalasaisandeep8859/" className="contact__social-links">
               <FaLinkedin />
-            </a>
-            <a href="https://twitter.com" className="contact__social-links">
-              <FaTwitter />
-            </a>
-            <a href="https://whatsapp.com" className="contact__social-links">
-              <FaWhatsapp />
-            </a>
-            <a href="https://snapchat.com" className="contact__social-links">
-              <FaSnapchat />
-            </a>
+            </a>  
+            <a href="https://github.com/saisandeepkoritala" className="contact__social-links">
+              <FaGithub />
+            </a>  
           </div>
         </div>
 
